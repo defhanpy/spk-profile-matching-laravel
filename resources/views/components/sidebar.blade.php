@@ -26,6 +26,7 @@
         Data Master
     </div>
 
+<<<<<<< HEAD
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="false" aria-controls="collapseTwo">
@@ -46,6 +47,30 @@
                 </a>
             </div>
         </div>
+=======
+    <!-- Alternatif -->
+    <li class="nav-item">
+        <a class="nav-link" href="/alternatif">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Data Alternatif</span>
+        </a>
+    </li>
+
+    <!-- Kriteria -->
+    <li class="nav-item">
+        <a class="nav-link" href="/kriteria">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Data Kriteria</span>
+        </a>
+    </li>
+
+    <!-- Sub Kriteria -->
+    <li class="nav-item">
+        <a class="nav-link" href="/subkriteria">
+            <i class="fas fa-fw fa-sitemap"></i>
+            <span>Sub Kriteria</span>
+        </a>
+>>>>>>> 2b6e62b75c8b4e268fdc3905e84f1e4fa167bd64
     </li>
 
     <hr class="sidebar-divider">
