@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\SubKriteriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,30 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/kriteria', [KriteriaController::class, 'index'])->name('kriteria.index');
+Route::get('/kriteria/create', [KriteriaController::class, 'create'])->name('kriteria.create');
+Route::post('/kriteria', [KriteriaController::class, 'store'])->name('kriteria.store');
+
+Route::get('/kriteria/{id}/edit', [KriteriaController::class, 'edit'])->name('kriteria.edit');
+Route::put('/kriteria/{id}', [KriteriaController::class, 'update'])->name('kriteria.update');
+
+Route::delete('/kriteria/{id}', [KriteriaController::class, 'destroy'])->name('kriteria.destroy');
+
+
+Route::get('/subkriteria', [SubKriteriaController::class, 'index'])->name('subkriteria.index');
+Route::get('/subkriteria/create', [SubKriteriaController::class, 'create'])->name('subkriteria.create');
+Route::post('/subkriteria', [SubKriteriaController::class, 'store'])->name('subkriteria.store');
+
+Route::get('/subkriteria/{id}/edit', [SubKriteriaController::class, 'edit'])->name('subkriteria.edit');
+Route::put('/subkriteria/{id}', [SubKriteriaController::class, 'update'])->name('subkriteria.update');
+
+Route::delete('/subkriteria/{id}', [SubKriteriaController::class, 'destroy'])->name('subkriteria.destroy');
+
+// Route::get('/kriteria/reset-session', function () {
+//     session()->forget('kriteria');
+//     session()->forget('kriteria_last_id');
+//     return redirect('/kriteria')->with('success', 'Session kriteria di-reset.');
+// });
+
+// /kriteria/reset-session
