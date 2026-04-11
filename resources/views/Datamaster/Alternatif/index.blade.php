@@ -29,7 +29,13 @@
                             <th>NIM</th>
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
+                            <th>Tempat,Tanggal Lahir</th>
+                            <th>No. Hp</th>
+                            <th>Email</th>
+                            <th>Alamat</th>
                             <th>Prodi</th>
+                            <th>Fakultas</th>
+                            <th>Angkatan</th>
                             <th>Semester</th>
                             <th>IPK</th>
                             <th>Penghasilan Ortu</th>
@@ -46,7 +52,13 @@
                             <td>{{ $m['nim'] }}</td>
                             <td>{{ $m['nama'] }}</td>
                             <td>{{ $m['jenis_kelamin'] }}</td>
+                            <td>{{ $m['tempat_lahir'] }}, {{ $m['tanggal_lahir'] }}</td>
+                            <td>{{ $m['no_hp'] }}</td>
+                            <td>{{ $m['email'] }}</td>
+                            <td>{{ $m['alamat'] }}</td>
                             <td>{{ $m['prodi'] }}</td>
+                            <td>{{ $m['fakultas'] }}</td>
+                            <td>{{ $m['angkatan'] }}</td>
                             <td>{{ $m['semester'] }}</td>
                             <td>{{ number_format((float)$m['ipk'], 2) }}</td>
                             <td>Rp {{ number_format((int)$m['penghasilan_orang_tua'], 0, ',', '.') }}</td>
