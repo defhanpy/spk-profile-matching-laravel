@@ -3,12 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
-<<<<<<< HEAD
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\SubKriteriaController;
-=======
->>>>>>> 2b6e62b75c8b4e268fdc3905e84f1e4fa167bd64
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/kriteria', [KriteriaController::class, 'index'])->name('kriteria.index');
@@ -53,6 +48,3 @@ Route::delete('/subkriteria/{id}', [SubKriteriaController::class, 'destroy'])->n
 // });
 
 // /kriteria/reset-session
-=======
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
->>>>>>> 2b6e62b75c8b4e268fdc3905e84f1e4fa167bd64
