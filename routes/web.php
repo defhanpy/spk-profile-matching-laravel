@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\SubKriteriaController;
+use App\Http\Controllers\AlternatifController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,16 @@ Route::get('/subkriteria/{id}/edit', [SubKriteriaController::class, 'edit'])->na
 Route::put('/subkriteria/{id}', [SubKriteriaController::class, 'update'])->name('subkriteria.update');
 
 Route::delete('/subkriteria/{id}', [SubKriteriaController::class, 'destroy'])->name('subkriteria.destroy');
+
+
+Route::get('/alternatif', [AlternatifController::class, 'index'])->name('alternatif.index');
+Route::get('/alternatif/create', [AlternatifController::class, 'create'])->name('alternatif.create');
+Route::post('/alternatif', [AlternatifController::class, 'store'])->name('alternatif.store');
+
+Route::get('/alternatif/{id}/edit', [AlternatifController::class, 'edit'])->name('alternatif.edit');
+Route::put('/alternatif/{id}', [AlternatifController::class, 'update'])->name('alternatif.update');
+
+Route::delete('/alternatif/{id}', [AlternatifController::class, 'destroy'])->name('alternatif.destroy');
 
 // Route::get('/kriteria/reset-session', function () {
 //     session()->forget('kriteria');
