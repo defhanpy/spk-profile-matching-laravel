@@ -28,6 +28,7 @@
                             <th>No</th>
                             <th>NIM</th>
                             <th>Nama</th>
+                            <th>Jenis Kelamin</th>
                             <th>Prodi</th>
                             <th>Semester</th>
                             <th>IPK</th>
@@ -44,6 +45,7 @@
                             <td>{{ $i + 1 }}</td>
                             <td>{{ $m['nim'] }}</td>
                             <td>{{ $m['nama'] }}</td>
+                            <td>{{ $m['jenis_kelamin'] }}</td>
                             <td>{{ $m['prodi'] }}</td>
                             <td>{{ $m['semester'] }}</td>
                             <td>{{ number_format((float)$m['ipk'], 2) }}</td>
