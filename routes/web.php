@@ -6,6 +6,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\SubKriteriaController;
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\ProfilStandarController;
+use App\Http\Controllers\NilaiProfilMahasiswaController;
+use App\Http\Controllers\PerhitunganProfileMatchingController;
+use App\Http\Controllers\RankingProfileMatchingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +46,13 @@ Route::put('/subkriteria/{id}', [SubKriteriaController::class, 'update'])->name(
 
 Route::delete('/subkriteria/{id}', [SubKriteriaController::class, 'destroy'])->name('subkriteria.destroy');
 
+// Route::get('/kriteria/reset-session', function () {
+//     session()->forget('kriteria');
+//     session()->forget('kriteria_last_id');
+//     return redirect('/kriteria')->with('success', 'Session kriteria di-reset.');
+// });
+
+// /kriteria/reset-session
 
 Route::get('/alternatif', [AlternatifController::class, 'index'])->name('alternatif.index');
 Route::get('/alternatif/create', [AlternatifController::class, 'create'])->name('alternatif.create');
@@ -52,10 +63,26 @@ Route::put('/alternatif/{id}', [AlternatifController::class, 'update'])->name('a
 
 Route::delete('/alternatif/{id}', [AlternatifController::class, 'destroy'])->name('alternatif.destroy');
 
-// Route::get('/kriteria/reset-session', function () {
-//     session()->forget('kriteria');
-//     session()->forget('kriteria_last_id');
-//     return redirect('/kriteria')->with('success', 'Session kriteria di-reset.');
-// });
 
-// /kriteria/reset-session
+Route::get('/profil-standar/sub-by-kriteria', [ProfilStandarController::class, 'subByKriteria'])
+    ->name('profil-standar.sub-by-kriteria');
+
+Route::resource('/profil-standar', ProfilStandarController::class)
+    ->names([
+        'index' => 'profil-standar.index',
+        'create' => 'profil-standar.create',
+        'store' => 'profil-standar.store',
+        'edit' => 'profil-standar.edit',
+        'update' => 'profil-standar.update',
+        'destroy' => 'profil-standar.destroy',
+        'show' => 'profil-standar.show', // tidak dipakai, tapi resource akan buat
+    ]);
+
+Route::get('/datamaster/nilaiprofil', [NilaiProfilMahasiswaController::class, 'index'])
+    ->name('nilaiprofil.index');
+
+Route::get('/penilaian', [PerhitunganProfileMatchingController::class, 'index'])
+    ->name('penilaian.index');
+
+Route::get('rangking', [RankingProfileMatchingController::class, 'index'])
+    ->name('rangking.index');

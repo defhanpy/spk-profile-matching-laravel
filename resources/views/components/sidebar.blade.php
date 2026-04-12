@@ -35,15 +35,15 @@
             style="">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
-                <a class=" collapse-item" href="/alternatif">
+                <a class=" collapse-item" href="{{ route('alternatif.index') }}">
                     <i class="fas fa-fw fa-list "></i>
                     <span>Data Alternatif</span>
                 </a>
-                <a class=" collapse-item" href="/kriteria">
+                <a class=" collapse-item" href="{{ route('kriteria.index') }}">
                     <i class="fas fa-fw fa-list "></i>
                     <span>Data Kriteria</span>
                 </a>
-                <a class="collapse-item" href="/subkriteria">
+                <a class="collapse-item" href="{{ route('subkriteria.index') }}">
                     <i class="fas fa-fw fa-sitemap "></i>
                     <span>Sub Kriteria</span>
                 </a>
@@ -52,17 +52,35 @@
 
     <hr class="sidebar-divider">
 
-    <!-- Penilaian -->
-    <div class="sidebar-heading">
-        Penilaian
-    </div>
+<!-- Penilaian -->
+<div class="sidebar-heading">
+    Penilaian
+</div>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/penilaian">
-            <i class="fas fa-fw fa-edit"></i>
-            <span>Input Penilaian</span>
-        </a>
-    </li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfil"
+        aria-expanded="false" aria-controls="collapseProfil">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Profil</span>
+    </a>
+
+    <div id="collapseProfil" class="collapse" aria-labelledby="headingProfil" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu Profil:</h6>
+
+            <a class="collapse-item" href="{{ route('profil-standar.index') }}">
+                <i class="fas fa-fw fa-list"></i>
+                <span>Profil Standar</span>
+            </a>
+
+            <a class="collapse-item" href="{{ route('nilaiprofil.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>Nilai Profil Mahasiswa</span>
+            </a>
+
+        </div>
+    </div>
+</li>
 
     <hr class="sidebar-divider">
 
@@ -72,7 +90,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="/perhitungan">
+        <a class="nav-link" href="{{ route('penilaian.index') }}">
             <i class="fas fa-fw fa-calculator"></i>
             <span>Profile Matching</span>
         </a>
@@ -86,12 +104,12 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="/ranking">
+        <a class="nav-link" href="{{ route('rangking.index') }}">
             <i class="fas fa-fw fa-trophy"></i>
             <span>Hasil Ranking</span>
         </a>
     </li>
-
+{{-- 
     <hr class="sidebar-divider">
 
     <!-- Laporan -->
@@ -119,7 +137,7 @@
             <i class="fas fa-fw fa-user-cog"></i>
             <span>Manajemen User</span>
         </a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
