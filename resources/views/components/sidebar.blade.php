@@ -68,14 +68,14 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Profil:</h6>
 
-            <a class="collapse-item" href="{{ route('profil-standar.index') }}">
+            <a class="collapse-item" href="{{ route('profilstandar.index') }}">
                 <i class="fas fa-fw fa-list"></i>
                 <span>Profil Standar</span>
             </a>
 
             <a class="collapse-item" href="{{ route('nilaiprofil.index') }}">
                 <i class="fas fa-fw fa-edit"></i>
-                <span>Nilai Profil Mahasiswa</span>
+                <span>Nilai Profil</span>
             </a>
 
         </div>
@@ -90,7 +90,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('penilaian.index') }}">
+        <a class="nav-link" href="{{ route('profile-matching.index') }}">
             <i class="fas fa-fw fa-calculator"></i>
             <span>Profile Matching</span>
         </a>
@@ -103,13 +103,15 @@
         Hasil
     </div>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('rangking.index') }}">
-            <i class="fas fa-fw fa-trophy"></i>
-            <span>Hasil Ranking</span>
-        </a>
-    </li>
-{{-- 
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('ranking.index') }}">
+        <i class="fas fa-fw fa-trophy"></i>
+        <span>Ranking</span>
+    </a>
+</li>
+
+{{--
     <hr class="sidebar-divider">
 
     <!-- Laporan -->
