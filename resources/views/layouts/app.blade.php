@@ -32,5 +32,7 @@
 {{-- Scripts --}}
 @include('components.scripts')
 
+@stack('scripts')
+
 </body>
 </html>

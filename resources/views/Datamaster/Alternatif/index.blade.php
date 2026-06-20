@@ -82,19 +82,9 @@
                                 <th>No</th>
                                 <th>NIM</th>
                                 <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>TTL</th>
-                                <th>No HP</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
                                 <th>Prodi</th>
-                                <th>Fakultas</th>
-                                <th>Angkatan</th>
                                 <th>Semester</th>
                                 <th>IPK</th>
-                                <th>Penghasilan Orang Tua</th>
-                                <th>Jumlah Tanggungan</th>
-                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -108,28 +98,29 @@
                                     </td>
                                     <td>{{ $item->nim }}</td>
                                     <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->jenis_kelamin }}</td>
-                                    <td>{{ $item->tempat_lahir }},
-                                        {{ \Carbon\Carbon::parse($item->tanggal_lahir)->format('d M Y') }}</td>
-                                    <td>{{ $item->no_hp }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->alamat }}</td>
                                     <td>{{ $item->prodi }}</td>
-                                    <td>{{ $item->fakultas }}</td>
-                                    <td>{{ $item->angkatan }}</td>
+                                    {{-- <td>{{ $item->fakultas }}</td> --}}
+                                    {{-- <td>{{ $item->angkatan }}</td> --}}
                                     <td>{{ $item->semester }}</td>
                                     <td>{{ $item->ipk }}</td>
-                                    <td>{{ $item->penghasilan_orang_tua }}</td>
-                                    <td>{{ $item->jumlah_tanggungan }}</td>
-                                    <td><span
+                                    {{-- <td>Rp {{ number_format($item->penghasilan_orang_tua, 0, ',', '.') }}</td>
+                                    <td>{{ $item->jumlah_tanggungan }} Orang</td> --}}
+                                    {{-- <td><span
                                             class="badge {{ $item->status == 'Aktif' ? 'badge-success' : 'badge-secondary' }}">{{ $item->status }}</span>
-                                    </td>
+                                    </td> --}}
                                     <td class="text-center">
 
                                         <div class="d-flex justify-content-center" style="gap:6px;">
 
+                                            <a href="{{ route('alternatif.show', $item->id_mhs) }}"
+                                                class="btn btn-info btn-sm" title="Detail">
+
+                                                <i class="fas fa-eye"></i>
+
+                                            </a>
+
                                             <a href="{{ route('alternatif.edit', $item->id_mhs) }}"
-                                                class="btn btn-warning btn-sm">
+                                                class="btn btn-warning btn-sm" title="Edit">
 
                                                 <i class="fas fa-edit"></i>
 

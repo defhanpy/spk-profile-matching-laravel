@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [AlternatifController::class, 'index'])->name('index');
         Route::get('/create', [AlternatifController::class, 'create'])->name('create');
         Route::post('/', [AlternatifController::class, 'store'])->name('store');
+        Route::get('/{id}', [AlternatifController::class, 'show'])->name('show');
         Route::get('/{id}/edit', [AlternatifController::class, 'edit'])->name('edit');
         Route::put('/{id}', [AlternatifController::class, 'update'])->name('update');
         Route::delete('/{id}', [AlternatifController::class, 'destroy'])->name('destroy');

@@ -35,10 +35,6 @@
             style="">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
-                <a class=" collapse-item" href="{{ route('alternatif.index') }}">
-                    <i class="fas fa-fw fa-list "></i>
-                    <span>Data Alternatif</span>
-                </a>
                 <a class=" collapse-item" href="{{ route('kriteria.index') }}">
                     <i class="fas fa-fw fa-list "></i>
                     <span>Data Kriteria</span>
@@ -47,40 +43,44 @@
                     <i class="fas fa-fw fa-sitemap "></i>
                     <span>Sub Kriteria</span>
                 </a>
+                <a class=" collapse-item" href="{{ route('alternatif.index') }}">
+                    <i class="fas fa-fw fa-list "></i>
+                    <span>Data Alternatif</span>
+                </a>
             </div>
         </div>
 
-    <hr class="sidebar-divider">
+        <hr class="sidebar-divider">
 
-<!-- Penilaian -->
-<div class="sidebar-heading">
-    Penilaian
-</div>
-
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfil"
-        aria-expanded="false" aria-controls="collapseProfil">
-        <i class="fas fa-fw fa-user"></i>
-        <span>Profil</span>
-    </a>
-
-    <div id="collapseProfil" class="collapse" aria-labelledby="headingProfil" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Menu Profil:</h6>
-
-            <a class="collapse-item" href="{{ route('profilstandar.index') }}">
-                <i class="fas fa-fw fa-list"></i>
-                <span>Profil Standar</span>
-            </a>
-
-            <a class="collapse-item" href="{{ route('nilaiprofil.index') }}">
-                <i class="fas fa-fw fa-edit"></i>
-                <span>Nilai Profil</span>
-            </a>
-
+        <!-- Penilaian -->
+        <div class="sidebar-heading">
+            Penilaian
         </div>
-    </div>
-</li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfil"
+            aria-expanded="false" aria-controls="collapseProfil">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profil</span>
+        </a>
+
+        <div id="collapseProfil" class="collapse" aria-labelledby="headingProfil" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Menu Profil:</h6>
+
+                <a class="collapse-item" href="{{ route('profilstandar.index') }}">
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Profil Standar</span>
+                </a>
+
+                <a class="collapse-item" href="{{ route('nilaiprofil.index') }}">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>Nilai Profil</span>
+                </a>
+
+            </div>
+        </div>
+    </li>
 
     <hr class="sidebar-divider">
 
@@ -104,14 +104,14 @@
     </div>
 
 
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('ranking.index') }}">
-        <i class="fas fa-fw fa-trophy"></i>
-        <span>Ranking</span>
-    </a>
-</li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('ranking.index') }}">
+            <i class="fas fa-fw fa-trophy"></i>
+            <span>Ranking</span>
+        </a>
+    </li>
 
-{{--
+    {{--
     <hr class="sidebar-divider">
 
     <!-- Laporan -->

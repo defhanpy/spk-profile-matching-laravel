@@ -8,8 +8,8 @@
             </a>
         </li>
 
-        @foreach($items as $item)
-            @if(isset($item['url']) && !$loop->last)
+        @foreach ($items as $item)
+            @if (isset($item['url']) && !$loop->last)
                 <li class="breadcrumb-item">
                     <a href="{{ $item['url'] }}" class="text-primary">
                         {{ $item['name'] }}

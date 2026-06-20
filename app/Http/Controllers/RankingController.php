@@ -5,47 +5,61 @@ namespace App\Http\Controllers;
 use App\Models\Alternatif;
 use App\Models\Kriteria;
 use App\Models\NilaiProfil;
+use App\Models\ProfilStandar;
 use Illuminate\Http\Request;
 
 class RankingController extends Controller
 {
+    private $bobotGap = [
+        0 => 5,
+        1 => 4.5,
+        -1 => 4,
+        2 => 3.5,
+        -2 => 3,
+        3 => 2.5,
+        -3 => 2,
+        4 => 1.5,
+        -4 => 1
+    ];
+
     public function index()
     {
         $alternatif = Alternatif::all();
-        $coreKriterias = Kriteria::where('jenis_kriteria', 'Core')->get();
-        $secondaryKriterias = Kriteria::where('jenis_kriteria', 'Secondary')->get();
-
-        $bobotCore = 60;
-        $bobotSecondary = 40;
+        $standar = ProfilStandar::all()->keyBy('kriteria_id');
+        $kriteriaList = Kriteria::all()->keyBy('id');
 
         $hasil = [];
 
         foreach ($alternatif as $alt) {
             $nilaiProfils = NilaiProfil::where('alternatif_id', $alt->id_mhs)->get();
 
-            $totalCore = 0;
-            $jumlahCore = 0;
-            foreach ($coreKriterias as $core) {
-                $nilai = $nilaiProfils->where('kriteria_id', $core->id)->first();
-                if ($nilai) {
-                    $totalCore += $nilai->nilai;
-                    $jumlahCore++;
+            $coreValues = [];
+            $secondaryValues = [];
+
+            foreach ($nilaiProfils as $nilai) {
+                $kriteriaId = $nilai->kriteria_id;
+                $nilaiMhs = $nilai->nilai;
+                $nilaiStd = isset($standar[$kriteriaId]) ? $standar[$kriteriaId]->nilai : 5;
+
+                $gap = $nilaiMhs - $nilaiStd;
+                $bobot = $this->bobotGap[$gap] ?? 0;
+
+                $jenisKriteria = isset($kriteriaList[$kriteriaId])
+                    ? $kriteriaList[$kriteriaId]->jenis_kriteria
+                    : 'Secondary';
+
+                $isCore = (strtolower($jenisKriteria) == 'core');
+
+                if ($isCore) {
+                    $coreValues[] = $bobot;
+                } else {
+                    $secondaryValues[] = $bobot;
                 }
             }
-            $ncf = $jumlahCore > 0 ? $totalCore / $jumlahCore : 0;
 
-            $totalSecondary = 0;
-            $jumlahSecondary = 0;
-            foreach ($secondaryKriterias as $secondary) {
-                $nilai = $nilaiProfils->where('kriteria_id', $secondary->id)->first();
-                if ($nilai) {
-                    $totalSecondary += $nilai->nilai;
-                    $jumlahSecondary++;
-                }
-            }
-            $nsf = $jumlahSecondary > 0 ? $totalSecondary / $jumlahSecondary : 0;
-
-            $total = ($ncf * $bobotCore / 100) + ($nsf * $bobotSecondary / 100);
+            $ncf = !empty($coreValues) ? array_sum($coreValues) / count($coreValues) : 0;
+            $nsf = !empty($secondaryValues) ? array_sum($secondaryValues) / count($secondaryValues) : 0;
+            $total = (0.6 * $ncf) + (0.4 * $nsf);
 
             $hasil[] = [
                 'alternatif_id' => $alt->id_mhs,
@@ -67,15 +81,7 @@ class RankingController extends Controller
 
     public function detail($id)
     {
-        $data = NilaiProfil::with(['alternatif', 'kriteria', 'subKriteria'])
-            ->where('alternatif_id', $id)
-            ->get();
-
-        if ($data->isEmpty()) {
-            return redirect()->route('rangking.index')->with('error', 'Data tidak ditemukan');
-        }
-
-        // PASTIKAN INI
-        return view('datamaster.rangking.detail', compact('data'));
+        return redirect()->route('profile-matching.detail', $id);
     }
 }
+

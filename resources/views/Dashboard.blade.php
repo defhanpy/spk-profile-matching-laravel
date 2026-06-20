@@ -95,7 +95,7 @@
                                         {{ $rankingTerbaik->nama }} ({{ $rankingTerbaik->nim }})
                                     </div>
                                     <div class="small mt-2">
-                                        Rata-rata Nilai: {{ $rankingTerbaik->rata_rata }}
+                                        Skor Akhir PM: {{ number_format($rankingTerbaik->total, 2) }}
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -123,7 +123,7 @@
                                         <th>Peringkat</th>
                                         <th>Nama</th>
                                         <th>NIM</th>
-                                        <th>Rata-rata Nilai</th>
+                                        <th>Skor Akhir PM</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -142,7 +142,7 @@
                                             </td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->nim }}</td>
-                                            <td>{{ number_format($item->rata_rata, 2) }}</td>
+                                            <td>{{ number_format($item->total, 2) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

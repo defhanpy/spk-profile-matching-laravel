@@ -213,16 +213,15 @@
                             <div class="form-group">
                                 <label>Penghasilan Orang Tua</label>
 
-                                <input type="number" name="penghasilan_orang_tua" class="form-control"
-                                    value="{{ old('penghasilan_orang_tua', $alternatif->penghasilan_orang_tua) }}"
-                                    required>
+                                <input type="text" class="form-control rupiah-input" data-target="#penghasilan_orang_tua" placeholder="Masukkan Penghasilan Orang Tua" required>
+                                <input type="hidden" name="penghasilan_orang_tua" id="penghasilan_orang_tua" value="{{ old('penghasilan_orang_tua', $alternatif->penghasilan_orang_tua) }}">
                             </div>
 
                         </div>
 
-                        <div class="col-md-6">
-
-                            <div class="form-group">
+                        {{-- <div class="col-md-6"> --}}
+                        <input name="status" type="hidden" value="Aktif" required>
+                        {{-- <div class="form-group">
                                 <label>Status</label>
 
                                 <select name="status" class="form-control" required>
@@ -239,9 +238,9 @@
 
                                 </select>
 
-                            </div>
+                            </div> --}}
 
-                        </div>
+                        {{-- </div> --}}
 
                         <div class="col-md-12">
 
@@ -272,3 +271,31 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.rupiah-input').each(function() {
+                let targetSelector = $(this).data('target');
+                let rawVal = $(targetSelector).val();
+                if (rawVal !== '' && !isNaN(rawVal)) {
+                    let formattedVal = parseInt(rawVal, 10).toLocaleString('id-ID');
+                    this.value = formattedVal;
+                }
+            });
+
+            $(document).on('input', '.rupiah-input', function(e) {
+                let targetSelector = $(this).data('target');
+                let val = this.value.replace(/\D/g, '');
+                if (val !== '') {
+                    let formattedVal = parseInt(val, 10).toLocaleString('id-ID');
+                    this.value = formattedVal;
+                    $(targetSelector).val(val);
+                } else {
+                    this.value = '';
+                    $(targetSelector).val('');
+                }
+            });
+        });
+    </script>
+@endpush

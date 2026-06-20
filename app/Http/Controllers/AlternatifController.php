@@ -137,7 +137,7 @@ class AlternatifController extends Controller
         $alternatif->delete();
 
         return redirect()
-            ->route('datamaster.alternatif.index')
+            ->route('alternatif.index')
             ->with('success', 'Data alternatif berhasil dihapus.');
     }
 }

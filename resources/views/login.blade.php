@@ -12,9 +12,7 @@
     <!-- Custom fonts -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
     <!-- Custom styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -73,11 +71,8 @@
                                         </span>
                                     </div>
 
-                                    <input type="email"
-                                        class="form-control form-control-user"
-                                        name="email"
-                                        placeholder="Enter Email Address..."
-                                        required>
+                                    <input type="email" class="form-control form-control-user" name="email"
+                                        placeholder="Masukkan Email Anda..." required>
 
                                 </div>
 
@@ -94,57 +89,22 @@
                                         </span>
                                     </div>
 
-                                    <input type="password"
-                                        class="form-control form-control-user"
-                                        name="password"
-                                        placeholder="Password"
-                                        required>
+                                    <input type="password" class="form-control form-control-user" name="password"
+                                        placeholder="Password Anda..." required>
 
                                 </div>
 
                             </div>
-
-                            <!-- REMEMBER -->
-                            <div class="form-group">
-
-                                <div class="custom-control custom-checkbox small">
-
-                                    <input type="checkbox"
-                                        class="custom-control-input"
-                                        id="customCheck">
-
-                                    <label class="custom-control-label"
-                                        for="customCheck">
-
-                                        Remember Me
-
-                                    </label>
-
-                                </div>
-
-                            </div>
+                            <hr>
 
                             <!-- BUTTON -->
-                            <button type="submit"
-                                class="btn btn-primary btn-user btn-block">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
 
                                 <i class="fas fa-sign-in-alt mr-2"></i>
-                                Login
+                                Masuk
 
                             </button>
-
                         </form>
-
-                        <hr>
-
-                        <div class="text-center">
-
-                            <a class="small" href="#">
-                                Forgot Password?
-                            </a>
-
-                        </div>
-
                     </div>
 
                 </div>

@@ -78,14 +78,14 @@
                                         <small class="text-muted">{{ $h['nim'] }}</small>
                                     </td>
                                     <td class="text-center">
-                                        <span class="badge badge-primary px-3 py-2">{{ number_format($h['ncf'], 4) }}</span>
+                                        <span class="badge badge-primary px-3 py-2">{{ number_format($h['ncf'], 2) }}</span>
                                     </td>
                                     <td class="text-center">
-                                        <span class="badge badge-info px-3 py-2">{{ number_format($h['nsf'], 4) }}</span>
+                                        <span class="badge badge-info px-3 py-2">{{ number_format($h['nsf'], 2) }}</span>
                                     </td>
                                     <td class="text-center">
                                         <span
-                                            class="badge badge-success px-3 py-2">{{ number_format($h['total'], 4) }}</span>
+                                            class="badge badge-success px-3 py-2">{{ number_format($h['total'], 2) }}</span>
                                     </td>
                                 </tr>
                             @empty
@@ -120,7 +120,7 @@
                             <i class="fas fa-trophy fa-3x text-warning mb-2"></i>
                             <h6 class="text-uppercase text-muted">Peringkat 1</h6>
                             <h5 class="mb-0 font-weight-bold">{{ $hasil[0]['nama'] }}</h5>
-                            <small class="text-muted">Skor: {{ number_format($hasil[0]['total'], 4) }}</small>
+                            <small class="text-muted">Skor: {{ number_format($hasil[0]['total'], 2) }}</small>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                         <div class="card-body text-center">
                             <i class="fas fa-chart-line fa-3x text-success mb-2"></i>
                             <h6 class="text-uppercase text-muted">Rata-rata Skor</h6>
-                            <h5 class="mb-0 font-weight-bold">{{ number_format(collect($hasil)->avg('total'), 4) }}</h5>
+                            <h5 class="mb-0 font-weight-bold">{{ number_format(collect($hasil)->avg('total'), 2) }}</h5>
                             <small class="text-muted">Dari {{ count($hasil) }} mahasiswa</small>
                         </div>
                     </div>
@@ -141,9 +141,9 @@
                         <div class="card-body text-center">
                             <i class="fas fa-chart-bar fa-3x text-info mb-2"></i>
                             <h6 class="text-uppercase text-muted">Skor Tertinggi</h6>
-                            <h5 class="mb-0 font-weight-bold">{{ number_format(collect($hasil)->max('total'), 4) }}</h5>
+                            <h5 class="mb-0 font-weight-bold">{{ number_format(collect($hasil)->max('total'), 2) }}</h5>
                             <small class="text-muted">Terendah:
-                                {{ number_format(collect($hasil)->min('total'), 4) }}</small>
+                                {{ number_format(collect($hasil)->min('total'), 2) }}</small>
                         </div>
                     </div>
                 </div>
